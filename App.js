@@ -1,6 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React , {useState }from 'react';
-import { StyleSheet, Text, View ,ScrollView  , TextInput , TouchableOpacity} from 'react-native';
+import { StyleSheet,
+         Text,
+         View ,
+         FlatList} from 'react-native';
+
 import { Input , Button } from 'react-native-elements';
 
 export default function App() {
@@ -9,13 +13,20 @@ export default function App() {
    const [data , setData] = useState([])
 
    const addText = ()=>{
-    setData([inputText, ...data])
+    setData([{id : Math.random().toString(),value : inputText}, ...data])
     setInputText('')
    }
 
-   const removeItem = ()=>{
-
+   const renderItem = ({item})=>{
+     return(
+        <View style = {styles.item}>
+         <Text style = {styles.text}>{item.value}</Text>
+       </View>
+      
+     )
    }
+
+   
 
   return (
     
@@ -40,17 +51,11 @@ export default function App() {
         <Text  style = {styles.safeText}> {inputText}</Text>
         </View>
 
-  <ScrollView>
-
-    {data.map((item)=>
-      (
-        <View key={item} style = {styles.item} onPress = {removeItem}>
-       <Text style = {styles.text}>{ item}</Text>
-     </View>
-      )
-    )}
-    
-     </ScrollView>
+  <FlatList 
+  keyExtractor = {(item , index)=>{item.id}}
+   data = {data}
+    renderItem = {renderItem}
+  />
      </View>
     
   
