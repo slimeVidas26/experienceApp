@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce38a4a5-959a-48f1-80c3-1fea26a6239c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +41,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="244" y="273" width="813" height="335" key="AVDManager" timestamp="1604339026599">
+    <state x="244" y="273" width="813" height="335" key="AVDManager" timestamp="1604430442225">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="244" y="273" width="813" height="335" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1604339026599" />
+    <state x="244" y="273" width="813" height="335" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1604430442225" />
   </component>
 </project>

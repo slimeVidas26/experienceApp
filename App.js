@@ -6,6 +6,7 @@ import { StyleSheet,
          FlatList} from 'react-native';
 
 import { Input , Button } from 'react-native-elements';
+import Item from './components/Item'
 
 export default function App() {
 
@@ -19,9 +20,7 @@ export default function App() {
 
    const renderItem = ({item})=>{
      return(
-        <View style = {styles.item}>
-         <Text style = {styles.text}>{item.value}</Text>
-       </View>
+       <Item text = {item.value} />
       
      )
    }
@@ -52,7 +51,7 @@ export default function App() {
         </View>
 
   <FlatList 
-  keyExtractor = {(item , index)=>{item.id}}
+  keyExtractor = {(item)=>{item.id}}
    data = {data}
     renderItem = {renderItem}
   />
@@ -72,24 +71,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'space-around',
     //flexWrap : 'wrap'
   },
-  item : {
-    backgroundColor : 'tomato',
-    //padding : 20,
-    width : 300,
-    height : 50,
-   
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop : 10,
-    
-    
-  },
- text : {
-   fontSize : 25,
-   color : 'white',
-   
-   
- },
+  
  
  
   form : {
