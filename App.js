@@ -1,21 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import React , {useState }from 'react';
 import { StyleSheet,
-         Text,
          View ,
-         FlatList} from 'react-native';
+         FlatList,
+         TextInput} from 'react-native';
 
-import { Input , Button } from 'react-native-elements';
 import Item from './components/Item'
+import InputForm from './components/InputForm'
 
 export default function App() {
 
-   const [inputText, setInputText] = useState('');
    const [data , setData] = useState([])
 
-   const addText = ()=>{
-    setData([{id : Math.random().toString(),value : inputText}, ...data])
-    setInputText('')
+   const addTextHandler = (itemTitle)=>{
+    setData([{id : Math.random().toString(),value : itemTitle}, ...data])
+    //setInputText('')
    }
 
    const renderItem = ({item})=>{
@@ -31,24 +30,12 @@ export default function App() {
     
   <View style={styles.container}>
 
-      <View style = {styles.form}>
-      <Input
-         placeholder='Enter some text'
-         onChangeText = {text=>setInputText(text)}
-         value = {inputText}
-     />
+    {/* input form */}
+    <InputForm  onAddText = {addTextHandler}/>
 
-     <Button
-     title="Add"
-     disabled={!inputText}
-     onPress = {addText}
-    />
-      
-      </View>
-
-      <View style = {styles.safeZone}>
+      {/* <View style = {styles.safeZone}>
         <Text  style = {styles.safeText}> {inputText}</Text>
-        </View>
+        </View> */}
 
   <FlatList 
   keyExtractor = {(item)=>{item.id}}
@@ -72,28 +59,17 @@ const styles = StyleSheet.create({
     //flexWrap : 'wrap'
   },
   
- 
- 
-  form : {
-    
-    flexDirection : 'row',
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    width : '65%'
-
- },
- 
- safeZone : {
-   width : 300,
-   height : 50,
-   backgroundColor : '#ADD8E6',
-   justifyContent : 'center',
-   alignItems : 'center',
+//  safeZone : {
+//    width : 300,
+//    height : 50,
+//    backgroundColor : '#ADD8E6',
+//    justifyContent : 'center',
+//    alignItems : 'center',
    
- },
- safeText : {
-   color : 'black',
-   fontSize : 20
- }
+//  },
+//  safeText : {
+//    color : 'black',
+//    fontSize : 20
+//  }
   
 });
