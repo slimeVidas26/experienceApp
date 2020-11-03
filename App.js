@@ -12,9 +12,10 @@ export default function App() {
 
    const [data , setData] = useState([])
 
+
    const addTextHandler = (itemTitle)=>{
     setData([{id : Math.random().toString(),value : itemTitle}, ...data])
-    
+     
    }
 
    const renderItem = ({item})=>{
