@@ -14,7 +14,7 @@ export default function App() {
 
    const addTextHandler = (itemTitle)=>{
     setData([{id : Math.random().toString(),value : itemTitle}, ...data])
-    //setInputText('')
+    
    }
 
    const renderItem = ({item})=>{

@@ -19,7 +19,8 @@ const InputForm = (props)=>{
      <Button
      title="Add"
      disabled={!inputText}
-     onPress = {()=>props.onAddText(inputText)}
+     onPress = {props.onAddText.bind(this , inputText)}
+     //setInputText('')
     />
       
       </View>
