@@ -22,7 +22,7 @@ const InputForm = (props)=>{
      />
 
      <Button
-     title="Add"
+     title= {inputText ? "Add" : "text"}
      disabled={!inputText}
      onPress = {()=>{props.onAddText(inputText) ; setInputText("") }}
     />

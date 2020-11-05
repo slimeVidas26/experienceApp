@@ -29,7 +29,7 @@ export default function App() {
 
    const renderItem = ({item})=>{
      return(
-       <Item   onDelete = {removeItemHandler.bind(this , item.id)} text = {item.value} /> 
+       <Item id = {item.id}   onDelete = {removeItemHandler} text = {item.value} /> 
      )
 
    }
