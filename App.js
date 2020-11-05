@@ -2,7 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React , {useState }from 'react';
 import { StyleSheet,
          View ,
+         Text,
          FlatList,
+         
          } from 'react-native';
 
 import Item from './components/Item'
@@ -12,16 +14,24 @@ export default function App() {
    const [data , setData] = useState([])
 
 
-   const addTextHandler = (itemTitle)=>{
-    setData([{id : Math.random().toString(),value : itemTitle}, ...data])
+   const addItemHandler = (itemTitle)=>{
+    setData(currentData =>
+      [{id : Math.random().toString(),value : itemTitle}, ...currentData])
      
    }
 
+
+   const removeItemHandler = itemId=>
+     setData(
+       currentData=>currentData.filter(item=>item.id !== itemId)
+     )
+   
+
    const renderItem = ({item})=>{
      return(
-       <Item text = {item.value} />
-      
+       <Item   onDelete = {removeItemHandler.bind(this , item.id)} text = {item.value} /> 
      )
+
    }
 
    
@@ -31,17 +41,18 @@ export default function App() {
   <View style={styles.container}>
 
     {/* input form */}
-    <InputForm  onAddText = {addTextHandler}/>
+    <InputForm  onAddText = {addItemHandler}/>
  
 
-
-   
-
-  <FlatList 
+ {data.length ? (<FlatList 
   keyExtractor = {(item)=>{item.id}}
    data = {data}
     renderItem = {renderItem}
-  />
+  /> )
+  : 
+  (<Text style = {styles.noItems}>No Items !!</Text>)}
+  
+ 
      </View>
     
   
@@ -58,6 +69,9 @@ const styles = StyleSheet.create({
     // justifyContent: 'space-around',
     //flexWrap : 'wrap'
   },
+  noItems : {
+    fontSize: 30
+  }
   
 
   
