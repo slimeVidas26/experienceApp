@@ -4,19 +4,23 @@ import { StyleSheet,
          View ,
          Text,
          FlatList,
-         
          } from 'react-native';
 
 import Item from './components/Item'
 import InputForm from './components/InputForm'
+import { Button} from 'react-native-elements';
+
 export default function App() {
 
    const [data , setData] = useState([])
+   const [isModal , setModal] = useState(false)
+
 
 
    const addItemHandler = (itemTitle)=>{
     setData(currentData =>
-      [{id : Math.random().toString(),value : itemTitle}, ...currentData])
+      [{id : Math.random().toString(),value : itemTitle}, ...currentData]),
+      hideModalHandler()
      
    }
 
@@ -31,8 +35,15 @@ export default function App() {
      return(
        <Item id = {item.id}   onDelete = {removeItemHandler} text = {item.value} /> 
      )
-
    }
+
+   const displayModalHandler = ()=>{
+     setModal(true)
+   }
+
+   const hideModalHandler = ()=>{
+    setModal(false)
+  }
 
    
 
@@ -40,8 +51,10 @@ export default function App() {
     
   <View style={styles.container}>
 
+    <Button onPress = {displayModalHandler}  title = "Add new item"/>
+
     {/* input form */}
-    <InputForm  onAddText = {addItemHandler}/>
+    <InputForm visible = {isModal} onAddText = {addItemHandler}/>
  
 
  {data.length ? (<FlatList 
@@ -70,7 +83,8 @@ const styles = StyleSheet.create({
     //flexWrap : 'wrap'
   },
   noItems : {
-    fontSize: 30
+    fontSize: 30,
+    color : 'tomato'
   }
   
 
