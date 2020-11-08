@@ -18,9 +18,12 @@ export default function App() {
 
 
    const addItemHandler = (itemTitle)=>{
-    setData(currentData =>
-      [{id : Math.random().toString(),value : itemTitle}, ...currentData]),
-      hideModalHandler()
+    
+      setData(currentData =>
+        [{id : Math.random().toString(),value : itemTitle}, ...currentData]),
+        hideModalHandler()
+    
+    
      
    }
 
@@ -54,7 +57,8 @@ export default function App() {
     <Button onPress = {displayModalHandler}  title = "Add new item"/>
 
     {/* input form */}
-    <InputForm visible = {isModal} onAddText = {addItemHandler} onCancel = {hideModalHandler}/>
+    <InputForm visible = {isModal} onAddText = {addItemHandler}
+     onCancel = {hideModalHandler}/>
  
 
  {data.length ? (<FlatList 

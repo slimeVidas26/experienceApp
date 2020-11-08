@@ -16,7 +16,7 @@ const InputForm = (props)=>{
        <View style = {styles.form}>
       
       <Input
-         placeholder='Enter some text'
+         placeholder={ "Enter some text"}
          onChangeText = {text=>setInputText(text)}
          value = {inputText}
      />
@@ -33,7 +33,7 @@ const InputForm = (props)=>{
     
          <View style = {{width : 100}}>
         <Button buttonStyle={{backgroundColor: 'red'}} title = 'Cancel'
-        onPress = {()=>{props.onCancel()}} />
+        onPress = {()=>{props.onCancel() ;setInputText('') }} />
         </View>
   
      </View>
