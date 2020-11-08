@@ -9,8 +9,10 @@ import { StyleSheet,
 import Item from './components/Item'
 import InputForm from './components/InputForm'
 import { Button} from 'react-native-elements';
-
+import MainStackNavigator from './navigation/MainStackNavigator'
 export default function App() {
+
+  return <MainStackNavigator />
 
    const [data , setData] = useState([])
    const [isModal , setModal] = useState(false)
