@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ce38a4a5-959a-48f1-80c3-1fea26a6239c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Item.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +25,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.other" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -48,21 +45,21 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="508" y="425" key="#Custom_Plugin_Repositories/0.0.1366.728@0.0.1366.728" timestamp="1604596996044" />
-    <state x="274" y="37" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604595658578">
+    <state x="274" y="37" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604597954013">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="274" y="37" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604595658578" />
-    <state x="244" y="273" width="813" height="335" key="AVDManager" timestamp="1604597910951">
+    <state x="274" y="37" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1604597954013" />
+    <state x="244" y="273" width="813" height="335" key="AVDManager" timestamp="1604608022911">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="244" y="273" width="813" height="335" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1604597910951" />
+    <state x="244" y="273" width="813" height="335" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1604608022911" />
     <state x="586" y="156" width="440" height="461" key="FileChooserDialogImpl" timestamp="1604596659544">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="586" y="156" width="440" height="461" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604596659544" />
-    <state x="165" y="17" width="998" height="708" key="SettingsEditor" timestamp="1604597472263">
+    <state x="165" y="17" width="998" height="708" key="SettingsEditor" timestamp="1604597942474">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="165" y="17" width="998" height="708" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604597472263" />
+    <state x="165" y="17" width="998" height="708" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1604597942474" />
   </component>
 </project>

@@ -54,7 +54,7 @@ export default function App() {
     <Button onPress = {displayModalHandler}  title = "Add new item"/>
 
     {/* input form */}
-    <InputForm visible = {isModal} onAddText = {addItemHandler}/>
+    <InputForm visible = {isModal} onAddText = {addItemHandler} onCancel = {hideModalHandler}/>
  
 
  {data.length ? (<FlatList 

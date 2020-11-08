@@ -21,11 +21,24 @@ const InputForm = (props)=>{
          value = {inputText}
      />
 
-     <Button
+
+     <View style = {styles.actions}>
+         <View style = {{width : 100}}>
+         <Button
      title= {inputText ? "Add" : "text"}
      disabled={!inputText}
      onPress = {()=>{props.onAddText(inputText) ; setInputText("")}}
     />
+         </View>
+    
+         <View style = {{width : 100}}>
+        <Button buttonStyle={{backgroundColor: 'red'}} title = 'Cancel'
+        onPress = {()=>{props.onCancel()}} />
+        </View>
+  
+     </View>
+
+    
     
       </View>
     
@@ -43,7 +56,7 @@ const InputForm = (props)=>{
 const styles = StyleSheet.create({
     form : {
         
-        flexDirection : 'row',
+        flexDirection : 'column',
         justifyContent: 'center',
         alignItems: 'stretch',
         width : '65%',
@@ -54,6 +67,13 @@ const styles = StyleSheet.create({
          flex : 1,
          justifyContent: 'center',
          alignItems: 'center',
+
+     },
+     actions : {
+         flexDirection : 'row',
+         justifyContent : 'space-evenly',
+         alignItems : 'center',
+         marginBottom : 50
 
      }
    
