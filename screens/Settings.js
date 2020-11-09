@@ -1,23 +1,15 @@
-// src/screens/Home.js
-
 import React from 'react'
-import { StyleSheet, View, Text  , TouchableOpacity} from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
-function Home(props) {
-  const character = {
-    name: 'Luke Skywalker',
-    home: 'Tatooine',
-    species: 'human'
-  }
-
-  const {navigation} = props
+function Settings(props) {
+  const { navigation } = props
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
+      <Text style={styles.text}>Settings</Text>
       <TouchableOpacity
         style={styles.buttonContainer}
-        onPress={() => navigation.navigate('Detail', { item: character })}>
-        <Text style={styles.buttonText}>who is {character.name}?</Text>
+        onPress={() => navigation.popToTop()}>
+        <Text style={styles.buttonText}>Go to Home</Text>
       </TouchableOpacity>
     </View>
   )
@@ -47,4 +39,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Home
+export default Settings
