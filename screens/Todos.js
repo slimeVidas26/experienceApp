@@ -18,11 +18,13 @@ export default function Todos() {
 
 
 
-   const addItemHandler = (itemTitle)=>{
+   const addItemHandler = (itemTitle , cb)=>{
     
       setData(currentData =>
-        [{id : Math.random().toString(),value : itemTitle}, ...currentData]),
+        [{id : Math.random().toString(),value : itemTitle}, ...currentData],
+        cb)
         hideModalHandler()
+       
     
     
      
