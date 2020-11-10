@@ -5,6 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Home from '../screens/Home'
 import Detail from '../screens/Detail'
 import Settings from '../screens/Settings'
+import Todos from '../screens/Todos'
+
 
 
 const Stack = createStackNavigator()
@@ -36,6 +38,9 @@ function MainStackNavigator() {
                       title: route.params.item.name
   })}
 />
+                   <Stack.Screen name='Todos'
+                      component={Todos}
+                      options = {{title : 'Todos screen'}} />
         <Stack.Screen
                       name='Settings'
                       component={Settings}

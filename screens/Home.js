@@ -19,6 +19,12 @@ function Home(props) {
         onPress={() => navigation.navigate('Detail', { item: character })}>
         <Text style={styles.buttonText}>who is {character.name}?</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.buttonContainer}
+        onPress={() => navigation.navigate('Todos')}>
+        <Text style={styles.buttonText}>Todo List</Text>
+      </TouchableOpacity>
     </View>
   )
 }
