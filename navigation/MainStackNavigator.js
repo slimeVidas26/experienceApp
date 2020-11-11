@@ -6,6 +6,7 @@ import Home from '../screens/Home'
 import Detail from '../screens/Detail'
 import Settings from '../screens/Settings'
 import Todos from '../screens/Todos'
+import FetchDataFromApi from '../screens/FetchDataFromApi'
 
 
 
@@ -38,13 +39,19 @@ function MainStackNavigator() {
                       title: route.params.item.name
   })}
 />
-                   <Stack.Screen name='Todos'
+        <Stack.Screen name='Todos'
                       component={Todos}
                       options = {{title : 'Todos screen'}} />
         <Stack.Screen
                       name='Settings'
                       component={Settings}
                       options={{ title: 'Settings' }}
+        />
+
+        <Stack.Screen
+                      name='FetchDataFromApi'
+                      component={FetchDataFromApi}
+                      options={{ title: 'Fetch Data From Api' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

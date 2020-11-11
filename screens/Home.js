@@ -25,6 +25,12 @@ function Home(props) {
         onPress={() => navigation.navigate('Todos')}>
         <Text style={styles.buttonText}>Todo List</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.buttonContainer}
+        onPress={() => navigation.navigate('FetchDataFromApi')}>
+        <Text style={styles.buttonText}>Fetch Data from API</Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -45,7 +51,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#222',
     borderRadius: 5,
     padding: 10,
-    margin: 20
+    margin: 5
   },
   buttonText: {
     fontSize: 20,
