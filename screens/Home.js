@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { StyleSheet, View, Text  , TouchableOpacity} from 'react-native'
-
+import ButtonHome from '../components/ButtonHome'
 function Home(props) {
   const character = {
     name: 'Luke Skywalker',
@@ -11,26 +11,24 @@ function Home(props) {
   }
 
   const {navigation} = props
+
+  
+  
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Home Screen</Text>
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.navigate('Detail', { item: character })}>
-        <Text style={styles.buttonText}>who is {character.name}?</Text>
-      </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.navigate('Todos')}>
-        <Text style={styles.buttonText}>Todo List</Text>
-      </TouchableOpacity>
+      
 
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => navigation.navigate('FetchDataFromApi')}>
-        <Text style={styles.buttonText}>Fetch Data from API</Text>
-      </TouchableOpacity>
+      <ButtonHome title = {`who is  ${character.name} ? `}
+                  onNavigate = {() => navigation.navigate('Detail', { item: character })}/>
+
+     
+      <ButtonHome title = 'FetchDataFromApi'
+                  onNavigate = {() => navigation.navigate('FetchDataFromApi')}/>
+
+      <ButtonHome title = 'Todo List'
+                  onNavigate = {() => navigation.navigate('Todos')}/>
     </View>
   )
 }
@@ -47,16 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold'
   },
-  buttonContainer: {
-    backgroundColor: '#222',
-    borderRadius: 5,
-    padding: 10,
-    margin: 5
-  },
-  buttonText: {
-    fontSize: 20,
-    color: '#fff'
-  }
+  
 })
 
 export default Home
