@@ -1,6 +1,6 @@
 // https://www.youtube.com/watch?v=DTQ7EceGACM&t=279s
 import React , {useState , useEffect} from 'react';
-import {View , Text , StyleSheet , FlatList ,  ActivityIndicator} from 'react-native'
+import {View , Text , StyleSheet , FlatList ,  ActivityIndicator , TextInput , Button} from 'react-native'
 
 
 const FetchDataFromApi = ()=>{
@@ -9,6 +9,16 @@ const FetchDataFromApi = ()=>{
     const [isLoading , setLoading] = useState(true)
     const [title , setTitle] = useState([])
     const [description , setDescription] = useState([])
+    const [inputMovie , setInputMovie] = useState('')
+    
+
+
+    const addMovieHandler = ()=>{
+        setData((currentData)=> [{ id : Math.random().toString() , title : inputMovie , releaseYear : 1985},...currentData  ]
+        )
+
+    
+    }
 
 
 
@@ -30,6 +40,7 @@ const FetchDataFromApi = ()=>{
 
 
     return (
+        
 
         <View style = {styles.container} > 
             {!isLoading ? <ActivityIndicator/> : 
@@ -37,6 +48,21 @@ const FetchDataFromApi = ()=>{
             <View>
               
                 <Text style={styles.title}>{title}</Text>
+                <TextInput placeholder = 'Add movie'  style = {styles.input}
+                onChangeText = {(movie)=>setInputMovie(movie)}/>
+
+
+               <View style = {styles.actions}>
+               <View style = {styles.btn}>
+                   <Button title = {'Add'} onPress = {addMovieHandler} />
+                   </View>
+              
+                   <View style = {styles.btn}>
+                   <Button color = 'red' title = {'Cancel'} />
+                   </View>
+                   </View>
+               
+
                
             <FlatList data = {data}
                 
@@ -91,8 +117,8 @@ const styles = StyleSheet.create({
           padding  : 20,
           marginBottom: 5,
           textDecorationLine: "underline",
-         textDecorationStyle: "solid",
-         textDecorationColor: "#000",
+          textDecorationStyle: "solid",
+          textDecorationColor: "#000",
           
       },
       description : {
@@ -101,10 +127,28 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding  : 20,
-        marginBottom: 5,
-       
-        
-    }
+        marginBottom: 5    
+    },
+    input : {
+        borderWidth : 2,
+        width : 350,
+        margin: 10,
+        padding: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize : 20,
+        borderRadius: 10,
+        backgroundColor : '#ffd700'
+    },
+    actions : {
+        flexDirection : 'row',
+        alignItems:'center',
+        justifyContent : 'space-around'
+    },
+    btn : {
+        width : 100
+    },
+   
 })
 
 
