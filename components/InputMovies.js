@@ -18,13 +18,15 @@ const InputMovies = (props)=>{
 onChangeText = {movie=>setInputMovie(movie)}
 value = {inputMovie}/>
 
+
+
 <View style = {styles.actions}>
 <View style = {styles.btn}>
    <Button disabled = {!inputMovie} title = 'Add' onPress = {props.onAddMovie.bind(this , inputMovie)} />
    </View>
 
    <View style = {styles.btn}>
-   <Button disabled = {!inputMovie} color = 'red' title = {'Cancel'} />
+   <Button onPress = {clearInput} disabled = {!inputMovie} color = 'red' title = {'Cancel'} />
    </View>
    </View>
             

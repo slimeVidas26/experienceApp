@@ -42,6 +42,7 @@ const MoviesApi = ()=>{
                 renderItem = {(itemData)=>{
                     return (
                   <MovieItem 
+                      id = {itemData.item.id}
                       title = {itemData.item.title} 
                       releaseYear = {itemData.item.releaseYear} 
                       onDeleteMovie = {()=>deleteMovieHandler(itemData.item.id)} /> 
