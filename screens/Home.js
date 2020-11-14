@@ -24,8 +24,8 @@ function Home(props) {
                   onNavigate = {() => navigation.navigate('Detail', { item: character })}/>
 
      
-      <ButtonHome title = 'FetchDataFromApi'
-                  onNavigate = {() => navigation.navigate('FetchDataFromApi')}/>
+      <ButtonHome title = 'Movies Api'
+                  onNavigate = {() => navigation.navigate('MoviesApi')}/>
 
       <ButtonHome title = 'Todo List'
                   onNavigate = {() => navigation.navigate('Todos')}/>

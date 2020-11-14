@@ -6,7 +6,7 @@ import Home from '../screens/Home'
 import Detail from '../screens/Detail'
 import Settings from '../screens/Settings'
 import Todos from '../screens/Todos'
-import FetchDataFromApi from '../screens/FetchDataFromApi'
+import MoviesApi from '../screens/MoviesApi'
 
 
 
@@ -49,9 +49,9 @@ function MainStackNavigator() {
         />
 
         <Stack.Screen
-                      name='FetchDataFromApi'
-                      component={FetchDataFromApi}
-                      options={{ title: 'Fetch Data From Api' }}
+                      name='MoviesApi'
+                      component={MoviesApi}
+                      options={{ title: 'Movies Api' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
