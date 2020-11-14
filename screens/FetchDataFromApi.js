@@ -1,23 +1,32 @@
 // https://www.youtube.com/watch?v=DTQ7EceGACM&t=279s
 import React , {useState } from 'react';
-import {View , Text , StyleSheet , FlatList ,  ActivityIndicator , TextInput , Button} from 'react-native'
+import {View , Text , StyleSheet , FlatList ,  ActivityIndicator , TextInput , Button, TouchableOpacity} from 'react-native'
 
 
 const FetchDataFromApi = ()=>{
 
-    const [data , setData] = useState([])
+    const [movies , setMovies] = useState([])
     const [isLoading , setLoading] = useState(true)
-    const [title , setTitle] = useState([])
-    const [description , setDescription] = useState([])
     const [inputMovie , setInputMovie] = useState('')
     
     const getRandomArbitrary = (min, max)=> {
         return Math.ceil(Math.random() * (max - min) + min);
       }
 
-    const addMovieHandler = ()=>{
-        setData((currentData)=> [{ id : Math.random().toString() , title : inputMovie , releaseYear : getRandomArbitrary(1900 , 2020).toString()},...currentData  ]
+      //ADD MOVIENHANDLER
+    const addMovieHandler = ()=>
+        setMovies((currentMovies)=> [{ id : Math.random().toString() , title : inputMovie , releaseYear : getRandomArbitrary(1900 , 2020).toString()},...currentMovies  ]
         )
+    
+
+    //DELETE MOVIE HANDLER
+    const deleteMovieHandler = itemId=>
+    setMovies(
+      currentMovies=>currentMovies.filter(item=>item.id !== itemId)
+    )
+
+    const clearInput = ()=>{
+        setInputMovie('')
     }
 
     return (
@@ -38,7 +47,10 @@ const FetchDataFromApi = ()=>{
 
                <View style = {styles.actions}>
                <View style = {styles.btn}>
-                   <Button title = 'Add' onPress = {addMovieHandler} />
+                   <Button title = 'Add' onPress = {()=>{setMovies(
+                    currentMovies=> [{ id : Math.random().toString() ,
+                                        title : inputMovie , 
+                                        releaseYear : getRandomArbitrary(1900 , 2020).toString()},...currentMovies  ]  ) ; clearInput()}} />
                    </View>
               
                    <View style = {styles.btn}>
@@ -48,17 +60,21 @@ const FetchDataFromApi = ()=>{
                
 
                
-            <FlatList data = {data}
+            <FlatList data = {movies}
                 
                 renderItem = {(itemData)=>{
                     return (
-                     <View style={styles.card}>
+                    <TouchableOpacity onPress = {() =>setMovies(
+      currentMovies=>currentMovies.filter(item=>itemData.item.id !== item.id)
+    ) }>
+                    <View  style={styles.card}>
                          <Text style={styles.cardText}>{`${itemData.item.title}  , ${itemData.item.releaseYear}`}</Text>
                      </View>
+                    </TouchableOpacity>
+                    
                     )
                 }}/>
               
-                <Text style={styles.description}>{description}</Text>
                 
             </View>
                 
