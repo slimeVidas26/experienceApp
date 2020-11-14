@@ -14,9 +14,12 @@ const FetchDataFromApi = ()=>{
       }
 
       //ADD MOVIENHANDLER
-    const addMovieHandler = ()=>
-        setMovies((currentMovies)=> [{ id : Math.random().toString() , title : inputMovie , releaseYear : getRandomArbitrary(1900 , 2020).toString()},...currentMovies  ]
-        )
+    const addMovieHandler =()=>{
+        setMovies((currentMovies)=> 
+        [{ id : Math.random().toString() ,
+           title : inputMovie ,
+            releaseYear : getRandomArbitrary(1900 , 2020).toString()},
+            ...currentMovies  ]) ; clearInput()}
     
 
     //DELETE MOVIE HANDLER
@@ -47,10 +50,7 @@ const FetchDataFromApi = ()=>{
 
                <View style = {styles.actions}>
                <View style = {styles.btn}>
-                   <Button title = 'Add' onPress = {()=>{setMovies(
-                    currentMovies=> [{ id : Math.random().toString() ,
-                                        title : inputMovie , 
-                                        releaseYear : getRandomArbitrary(1900 , 2020).toString()},...currentMovies  ]  ) ; clearInput()}} />
+                   <Button title = 'Add' onPress = {addMovieHandler} />
                    </View>
               
                    <View style = {styles.btn}>
@@ -64,9 +64,7 @@ const FetchDataFromApi = ()=>{
                 
                 renderItem = {(itemData)=>{
                     return (
-                    <TouchableOpacity onPress = {() =>setMovies(
-      currentMovies=>currentMovies.filter(item=>itemData.item.id !== item.id)
-    ) }>
+                    <TouchableOpacity onPress = {()=>deleteMovieHandler(itemData.item.id) }>
                     <View  style={styles.card}>
                          <Text style={styles.cardText}>{`${itemData.item.title}  , ${itemData.item.releaseYear}`}</Text>
                      </View>
