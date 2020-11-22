@@ -1,10 +1,17 @@
 import React, { useState , useEffect } from 'react';
-import {View , Text , StyleSheet, Button , FlatList ,Image} from 'react-native'
-import { TextInput } from 'react-native-gesture-handler';
+import {View ,TextInput ,  Text , StyleSheet, Button , FlatList ,Image} from 'react-native'
 
 
 const Item = ({ item }) => (
+    <>
       <Text>{item.images.preview.mp4}</Text>
+        
+       
+        <Image
+            resizeMode='contain'
+            source={{uri: item.images.preview.mp4}}
+          />
+    </>
   );
 
 
@@ -25,68 +32,53 @@ const GiphyApi = (props)=>{
         //.then(json=>console.log(json.data[0].images.preview.mp4))    
     } , [query])
 
-    const renderItem = ({ item }) => {
+    // const renderItem = ({ item }) => {
     
-        return (
-          <Item item={item}
-          />
-        );
-      };
+    //     return (
+    //       <Item item={item}
+          
+    //       />
+    //     );
+    //   };
 
 
     return (
         <View style = {styles.container}> 
             <Text style = {styles.giphyText}>welcome to Giphy Api</Text>
-            <View>
-                <TextInput style = {styles.input} placeholder = {'Your Giphy...'} 
+            <View style = {styles.form}>
+                <TextInput style = {styles.inputField}  placeholder = {'Your Giphy...'} 
                            value = {search}
                            onChangeText = {(search)=>{setSearch(search)}}
                 />
 
-                <Button title = 'Search' onPress = {()=>setQuery(search)} />
+                <Button  title = 'Search' onPress = {()=>setQuery(search)} />
             </View>
 
              <View>
-             <FlatList
+        <FlatList
         data={result}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
+        renderItem={({item}) => (
+          <Text
+           
+          > {item.title}</Text>
+         
+        )}
       />
             
             </View>
-
-            {/* <Text style = {styles.debugText}>{search}</Text>
-            <Text style = {styles.debugText}>{query}</Text> */}
+<View>
+<Text style = {styles.debugText}>{search}</Text>
+<Text style = {styles.debugText}>{query}</Text> 
+</View>
+             
         </View>
     )
 }
 
 
 const styles = StyleSheet.create({
-    container : {
-        flex : 1,
-        alignItems : 'center',
-        justifyContent : 'center'
-    },
-    giphyText : {
-        fontSize : 24
-    },
-    input : {
-        width : 300,
-        fontSize : 24,
-        borderColor : 'black',
-        borderBottomColor : 'black',
-        borderBottomWidth : 1,
-        padding : 10,
-        margin : 20
-
-    },
-    debugText : {
-        backgroundColor : 'yellow',
-        padding : 10,
-        borderRadius : 10,
-        fontSize : 20
-    }
+   
+ 
 })
 
 export default GiphyApi;
