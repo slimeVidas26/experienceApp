@@ -24,11 +24,14 @@ function Home(props) {
                   onNavigate = {() => navigation.navigate('Detail', { item: character })}/>
 
      
-      <ButtonHome title = 'Movies Api'
-                  onNavigate = {() => navigation.navigate('MoviesApi')}/>
+      <ButtonHome title = 'Movies'
+                  onNavigate = {() => navigation.navigate('Movies')}/>
 
       <ButtonHome title = 'Todo List'
                   onNavigate = {() => navigation.navigate('Todos')}/>
+
+      <ButtonHome title = 'Giphy Api'
+                  onNavigate = {() => navigation.navigate('GiphyApi')}/>
     </View>
   )
 }

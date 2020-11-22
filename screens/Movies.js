@@ -4,7 +4,7 @@ import {View , Text ,  StyleSheet , FlatList ,  ActivityIndicator , TextInput , 
 import InputMovies from '../components/InputMovies'
 import MovieItem from '../components/MovieItem';
 
-const MoviesApi = ()=>{
+const Movies = ()=>{
 
     const [movies , setMovies] = useState([])
     
@@ -41,11 +41,14 @@ const MoviesApi = ()=>{
                 
                 renderItem = {(itemData)=>{
                     return (
-                  <MovieItem 
-                      id = {itemData.item.id}
+                  <MovieItem id = {itemData.item.id}
                       title = {itemData.item.title} 
                       releaseYear = {itemData.item.releaseYear} 
-                      onDeleteMovie = {()=>deleteMovieHandler(itemData.item.id)} /> 
+                      //onDeleteMovie = {deleteMovieHandler.bind(this , itemData.item.id)} //1
+                    //onDeleteMovie = {()=>deleteMovieHandler(itemData.item.id)} //2
+                      onDeleteMovie = {deleteMovieHandler} //3
+                       /> 
+                      
                     
                     )
                 }}/>
@@ -67,4 +70,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default MoviesApi;
+export default Movies;
